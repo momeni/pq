@@ -29,6 +29,9 @@ Actual message:   %q`,
 		in = rfc5802ServerMsgs[s]
 		s++
 	}
+	if s < 2 {
+		t.Fatalf("Step stopped early at step %d instead of 3", s+1)
+	}
 	if err := client.Err(); err != nil {
 		t.Fatalf("Unexpected error: %v", err)
 	}
